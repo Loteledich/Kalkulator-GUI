@@ -1,11 +1,13 @@
 import PySimpleGUI as sg
-import main
+import Calculations
 
-cal = main.Kalkulator(1, 1)
+cal = Calculations.Kalkulator(1, 1)
 
 class Graphic:
     def __init__(self):
-        self.layout = [[sg.Text('Wynik', key='-OUT-', size=(100, 1))],
+        self.layout = [[sg.Text('Liczba1: ', key='licz1', size=(100, 1))],
+                       [sg.Text('Liczba2: ', key='licz2', size=(100, 1))],
+                  [sg.Text('Wynik', key='-OUT-', size=(100, 1))],
                   [sg.Text('Operacje', key='oper', size=(100, 1))],
                   [sg.B('1'), sg.B('2'), sg.B('3'), sg.B('/')],
                   [sg.B('4'), sg.B('5'), sg.B('6'), sg.B('*')],
@@ -39,20 +41,21 @@ class Graphic:
             elif event == '=':
                 flag=0
                 if whattodo == '+':
-                    self.window['oper'].update(cal.Dodawanie())
+                    self.window['-OUT-'].update(cal.Dodawanie())
 
                 if whattodo == '-':
-                    self.window['oper'].update(cal.Odejmowanie())
+                    self.window['-OUT-'].update(cal.Odejmowanie())
                 if whattodo == '/':
-                    self.window['oper'].update(cal.Dzielenie())
+                    self.window['-OUT-'].update(cal.Dzielenie())
                 if whattodo == '*':
-                    self.window['oper'].update(cal.Mnozenie())
+                    self.window['-OUT-'].update(cal.Mnozenie())
                 self.liczba1=self.liczba2=""
 
+
             if flag==0:
-                self.window['-OUT-'].update(self.liczba1)
+                self.window['licz1'].update(self.liczba1)
             if flag ==1:
-                self.window['-OUT-'].update(self.liczba2)
+                self.window['licz2'].update(self.liczba2)
 
         self.window.close()
 

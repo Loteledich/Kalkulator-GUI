@@ -1,81 +1,83 @@
 import math
 
+
 class Kalkulator:
-    def __init__(self,a,b):
-        self.a=a
-        self.b=b
-        self.history=[]
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+        self.history = []
 
     def Dodawanie(self):
-        #self.history.append(str(self.a) + " + " + str(self.b) + " = " + str(self.a+self.b))
-        return self.a+self.b
+        # self.history.append(str(self.a) + " + " + str(self.b) + " = " + str(self.a+self.b))
+        return self.a + self.b
 
     def Odejmowanie(self):
         self.history.append(str(self.a) + " - " + str(self.b) + " = " + str(self.a - self.b))
-        return self.a-self.b
+        return self.a - self.b
 
     def Mnozenie(self):
         self.history.append(str(self.a) + " * " + str(self.b) + " = " + str(self.a * self.b))
-        return self.a*self.b
+        return self.a * self.b
 
     def Dzielenie(self):
-        if self.b==0:
+        if self.b == 0:
             self.history.append("Próbowano dzielić przez zero :(")
-            return print ("Nie dziel przez zero")
+            return print("Nie dziel przez zero")
         else:
             self.history.append(str(self.a) + " / " + str(self.b) + " = " + str(self.a / self.b))
-            return self.a/self.b
+            return self.a / self.b
 
     def Historia(self):
-        licznik=1
-        print ("Historia operacji:")
+        licznik = 1
+        print("Historia operacji:")
         for x in self.history:
-            print (str(licznik) +": " + x)
-            licznik+=1
+            print(str(licznik) + ": " + x)
+            licznik += 1
 
     def Pierwiastek(self):
         self.history.append("Pierwiastek z " + str(self.a) + " to " + str(math.sqrt(self.a)))
         return math.sqrt(self.a)
 
     def Potega(self):
-        self.history.append("Postega z " + (self.a) + " to " + str(self.a*self.a))
-        return self.a*self.a
+        self.history.append("Postega z " + (self.a) + " to " + str(self.a * self.a))
+        return self.a * self.a
 
     def ProcentAzB(self):
-        self.history.append("Procent " + str(self.a) + " z " + str(self.b) + " to " + str((self.a/self.b*100))+"%")
-        return (str((self.a/self.b*100))+"%")
+        self.history.append(
+            "Procent " + str(self.a) + " z " + str(self.b) + " to " + str((self.a / self.b * 100)) + "%")
+        return (str((self.a / self.b * 100)) + "%")
 
     def Fibbo(self):
         self.history.append("Liczono ciąg Fibbonacziego do " + str(a))
-        ciag = [1,1]
-        for x in range(self.a-2):
+        ciag = [1, 1]
+        for x in range(self.a - 2):
             ciag.append(ciag[x] + ciag[(x + 1)])
         return ciag
 
     def LiczFibbo(self):
-        suma=0
-        ciag=self.Fibbo()
+        suma = 0
+        ciag = self.Fibbo()
         for x in ciag:
-            suma+=x
+            suma += x
         self.history.append("Liczono sumę ciągu Fibbonacziego do " + str(a) + " i wyszło " + str(suma))
         return suma
 
     def IsEqual(self):
         self.history.append(str(self.a) + " + " + str(self.b) + " = " + str(self.a + self.b))
-        if self.a==self.b:
+        if self.a == self.b:
             self.history.append("Porównano A i B - są równe")
             return "Równe"
 
-        elif self.a>self.b:
+        elif self.a > self.b:
             self.history.append("Porównano A i B - A jest większe od B")
             return "A jest większe od B"
 
-        elif self.a<self.b:
+        elif self.a < self.b:
             self.history.append("Porównano A i B - A jest mniejsze od B")
             return "A jest mniejsze od B"
 
     def mozliwosci(self):
-        print ("Wybierz cyfrę, by dokonać odpowiednią operację")
+        print("Wybierz cyfrę, by dokonać odpowiednią operację")
         print("1 - Dodawanie")
         print("2 - Odejmowanie")
         print("3 - Mnożenie")
@@ -89,10 +91,10 @@ class Kalkulator:
         print("11 - Historia operacji")
         print("12 - wyświetlenie opcji")
 
-#----------------------KONIEC KALKULATORA------------------------------------------
+# ----------------------KONIEC KALKULATORA------------------------------------------
 
 
-#kreski="-----------------------------------------------------------"
+# kreski="-----------------------------------------------------------"
 #
 # print ("Witaj w moim skromnym kalkulatorze")
 # cal.mozliwosci()
