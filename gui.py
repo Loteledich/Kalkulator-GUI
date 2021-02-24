@@ -37,6 +37,7 @@ class Graphic:
                 whattodo=event
 
             elif event == '=':
+                flag=0
                 if whattodo == '+':
                     self.window['oper'].update(cal.Dodawanie())
 
@@ -46,6 +47,8 @@ class Graphic:
                     self.window['oper'].update(cal.Dzielenie())
                 if whattodo == '*':
                     self.window['oper'].update(cal.Mnozenie())
+                self.liczba1=self.liczba2=""
+
             if flag==0:
                 self.window['-OUT-'].update(self.liczba1)
             if flag ==1:
