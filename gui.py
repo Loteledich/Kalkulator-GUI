@@ -15,7 +15,7 @@ class Graphic:
                   [sg.B('0'), sg.B('=', size=(7, 1)), sg.B('+')],
                   [sg.B('Exit')]]
 
-        self.window = sg.Window('Title', self.layout, size=(300, 300))
+        self.window = sg.Window('Kalkulator', self.layout, size=(300, 300))
 
         self.liczba1 = ""
         self.liczba2 = ""
@@ -56,7 +56,7 @@ class Graphic:
                 if whattodo == '*':
                     wynik=cal.Mnozenie()
                     self.window['-OUT-'].update(cal.Mnozenie())
-                self.operacje = self.operacje + str(wynik) + "; "
+                self.operacje =self.operacje + str(wynik) + ";  "
 
 
             self.window['oper'].update(self.operacje)
@@ -64,10 +64,6 @@ class Graphic:
             self.window['licz1'].update(self.liczba1)
             #if flag ==1:
             self.window['licz2'].update(self.liczba2)
-
-
-
-
 
         self.window.close()
 
