@@ -5,9 +5,9 @@ cal = Calculations.Kalkulator(1, 1)
 
 class Graphic:
     def __init__(self):
-        self.layout = [[sg.Text('Liczba1: ', key='licz1', size=(100, 1))],
-                       [sg.Text('Liczba2: ', key='licz2', size=(100, 1))],
-                  [sg.Text('Wynik', key='-OUT-', size=(100, 1))],
+        self.layout = [[sg.Text('Liczba1: '), sg.Text('', key='l1', size=(100, 1))],
+                       [sg.Text('Liczba2: '), sg.Text('', key='l2', size=(100, 1))],
+                  [sg.Text('Wynik'),sg.Text('', key='-OUT-', size=(100, 1))],
                   [sg.Text('Operacje', key='oper', size=(100, 1))],
                   [sg.B('1'), sg.B('2'), sg.B('3'), sg.B('/')],
                   [sg.B('4'), sg.B('5'), sg.B('6'), sg.B('*')],
@@ -49,13 +49,16 @@ class Graphic:
                     self.window['-OUT-'].update(cal.Dzielenie())
                 if whattodo == '*':
                     self.window['-OUT-'].update(cal.Mnozenie())
-                self.liczba1=self.liczba2=""
+                self.liczba1 = ""
+                self.liczba2 = ""
 
 
-            if flag==0:
-                self.window['licz1'].update(self.liczba1)
-            if flag ==1:
-                self.window['licz2'].update(self.liczba2)
+            #if flag==0:
+            self.window['l1'].update(self.liczba1)
+            #if flag ==1:
+            self.window['l2'].update(self.liczba2)
+
+
 
         self.window.close()
 
