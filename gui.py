@@ -56,7 +56,7 @@ class Graphic:
                 if whattodo == '*':
                     wynik=cal.Mnozenie()
                     self.window['-OUT-'].update(cal.Mnozenie())
-                self.operacje += str(wynik)
+                self.operacje = self.operacje + str(wynik) + "; "
 
 
             self.window['oper'].update(self.operacje)
